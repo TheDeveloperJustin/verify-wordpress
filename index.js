@@ -25,15 +25,15 @@ async function checkWpConfigExists(url) {
     const response = await axios.get(url)
     const html = response.data
 
-    // Check if the source code contains source file wp-content
-    if (html.includes('/wp-content')) {
+    // Check if the source code contains wordpress or squarespace
+    if (html.includes('/wp-content') || html.includes('squarespace')) {
       appendLine(url)
-      console.log('Website is wordpress')
+      console.log('Website is Wordpress or Squarespace')
     } else {
-      console.log('Website is not wordpress')
+      console.log('Website is not Wordpress or Squarespace')
     }
-  } catch (error) {
-    console.error('Error occurred while checking for wordpress:', error)
+  } catch (err) {
+    console.error('Error occurred while checking website:', error)
   }
 }
 
