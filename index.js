@@ -15,7 +15,7 @@ const appendLine = (text) => {
       }
   })
   } catch (err) {
-    console.log(err.message)
+    console.error(err.message)
   }
 }
 
@@ -33,7 +33,7 @@ async function checkIfValidWebsite(url) {
       console.log('Website is not Wordpress or Squarespace')
     }
   } catch (err) {
-    console.error('Error occurred while checking website:', error)
+    console.error('Error occurred while checking website:', err.message)
   }
 }
 
